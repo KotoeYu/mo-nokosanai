@@ -1,6 +1,9 @@
 package jp.co.developersb.controller.chapter3_controller;
 
+import jakarta.validation.Valid;
+import jp.co.developersb.dto.chapter3_dto.CalcForm2;
 import jp.co.developersb.dto.chapter3_dto.DrinkForm;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,6 +44,18 @@ public class LectureController3 {
     @GetMapping("/drink-dto")
     public String drinkDto(DrinkForm form) {
         return  form.name() + "は" + form.price() + "円です。";
+    }
+
+    /* -- no14_バリデーション -- */
+    @GetMapping("/calc-valid")
+    public String calc(@Valid CalcForm2 form2, BindingResult br) {
+        if (br.hasErrors()) {
+            return "入力値が不正です。";
+        }
+        int a = form2.a();
+        int b = form2.b();
+        int result = a * b;
+        return a + " * " + b  + "は" + result + "になります。";
     }
 
 
