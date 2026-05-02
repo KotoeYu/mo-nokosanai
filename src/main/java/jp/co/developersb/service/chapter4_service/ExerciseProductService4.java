@@ -32,7 +32,7 @@ public class ExerciseProductService4 {
                 request.stock()
         );
 
-        // TODO: 4.productsに作成した商品を追加してください
+        // TODO: 4.productsに新しく作成した商品を追加してください
         products.add(product);
 
         // TODO: 5.nextIdを1増やしてください
