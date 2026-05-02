@@ -24,7 +24,7 @@ public class ExerciseProductService4 {
             throw new ProductAlreadyExistsException("同じ商品名の商品は登録できません");
         }
 
-        // TODO: 3.ProductResponseを作成してください
+        // TODO: 3.新しく作成する商品のインスタンスを生成してください
         ProductResponse4 product = new ProductResponse4(
                 nextId,
                 request.name(),
@@ -38,7 +38,7 @@ public class ExerciseProductService4 {
         // TODO: 5.nextIdを1増やしてください
         nextId++;
 
-        // TODO: 6.作成した商品をreturnしてください
+        // TODO: 6.新しく作成した商品をreturnしてください
         return product;
     }
 
