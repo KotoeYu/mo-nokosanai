@@ -136,6 +136,7 @@
       border-radius: 6px;
       line-height: 1.6;
       font-size: 14px;
+      white-space: pre-line;
     }
 
     .message.is-success {
@@ -238,7 +239,7 @@
     <section>
       <h2>商品登録</h2>
 
-      <form id="productForm">
+      <form id="productForm" novalidate>
         <label for="apiPath">使用するAPI</label>
         <input id="apiPath" type="text" style="color: black;" value="/chapter4-lecture/product" disabled>
 
@@ -336,8 +337,8 @@
 
     const product = {
       name: form.name.value,
-      price: Number(form.price.value),
-      stock: Number(form.stock.value)
+      price: form.price.value === "" ? null : Number(form.price.value),
+      stock: form.stock.value === "" ? null : Number(form.stock.value)
     };
 
     try {
