@@ -5,14 +5,17 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public record ProductRequest5(
-        @NotBlank(message = "商品名の入力は必須です")
+        @NotBlank(message = "名前を入力してください")
         String name,
 
-        @NotNull(message = "価格の入力は必須です")
-        @Min(value = 1, message = "価格は1円以上で入力してください")
-        Integer price,
+        @NotBlank(message = "種類を入力してください")
+        String category,
 
-        @NotNull(message = "在庫数の入力は必須です")
-        @Min(value = 0, message = "在庫数は0以上で入力してください")
-        Integer stock
+        @NotNull(message = "数量を入力してください")
+        @Min(value = 1, message = "数量は1以上で入力してください")
+        Integer quantity,
+
+        String expiryDate,
+
+        String memo
 ) {}

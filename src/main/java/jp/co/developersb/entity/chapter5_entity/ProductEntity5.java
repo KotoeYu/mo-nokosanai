@@ -13,26 +13,41 @@ import lombok.Getter;
 @Table(name = "productinfo")
 public class ProductEntity5 {
 
-    @Id
+  @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String name;
 
     @Column(nullable = false)
-    private Integer price;
+    private String category;
 
     @Column(nullable = false)
-    private Integer stock;
+    private Integer quantity;
+
+    private String expiryDate;
+
+    private String memo;
 
     protected ProductEntity5() {
     }
 
-    public ProductEntity5(String name, Integer price, Integer stock) {
+    public ProductEntity5(String name, String category, Integer quantity,
+                          String expiryDate, String memo) {
         this.name = name;
-        this.price = price;
-        this.stock = stock;
+        this.category = category;
+        this.quantity = quantity;
+        this.expiryDate = expiryDate;
+        this.memo = memo;
     }
 
+    public void update(String name, String category, Integer quantity,
+                       String expiryDate, String memo) {
+        this.name = name;
+        this.category = category;
+        this.quantity = quantity;
+        this.expiryDate = expiryDate;
+        this.memo = memo;
+    }
 }

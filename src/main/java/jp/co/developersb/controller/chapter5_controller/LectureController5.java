@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.util.List;
 
@@ -31,4 +34,14 @@ public class LectureController5 {
     public List<ProductResponse5> findAllProducts() {
         return lectureProductService.findAllProducts();
     }
-}
+    @PutMapping("/product/{id}")
+    public ProductResponse5 updateProduct(
+            @PathVariable Long id,
+            @Valid @RequestBody ProductRequest5 request) {
+        return lectureProductService.updateProduct(id, request);
+    }
+    @DeleteMapping("/product/{id}")
+    public void deleteProduct(@PathVariable Long id) {
+        lectureProductService.deleteProduct(id);
+    }
+    }
