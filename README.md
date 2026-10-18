@@ -130,11 +130,11 @@
 
 
 
-&#x20;  ```bash
+```bash
 
-&#x20;  docker compose up -d
+docker compose up -d
 
-&#x20;  ```
+```
 
 
 
